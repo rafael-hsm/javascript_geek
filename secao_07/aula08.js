@@ -82,6 +82,26 @@ class Pessoa{
     set cpf(cpf){
         this._cpf = cpf;
     }
+
+    // Métodos extras
+    get nome_completo(){
+        return this._nome + ' ' + this._sobrenome
+    }
+
+    set nome_completo(nome_completo){
+        // transforma a string em um array onde cada elemento do array será as partes da string separadas por espaço
+        nome_completo = nome_completo.split(' ');
+
+        // Remove e retorna o elemento da posição 0 do array
+        this._nome = nome_completo.shift();
+
+        // junta os elementos do array em uma string separando cada elemento por espaço
+        this._sobrenome = nome_completo.join(' ');
+    }
+
+    imprimir_dados(){
+        console.log(`${this.nome} ${this.sobrenome}`)
+    }
 }
 
 class Funcionario extends Pessoa{
@@ -123,8 +143,33 @@ class Cliente extends Pessoa{
     }
 }
 
-const c1 = new Cliente('Felicity', 'Jones', 'felicity@gmail.com', '123.456.789-98', 16789.44);
-const c2 = new Cliente('Rafael', 'Meireles', 'rafameireles@gmail.com', '123.444.789-98', 10789.44);
+// const c1 = new Cliente('Felicity', 'Jones', 'felicity@gmail.com', '123.456.789-98', 16789.44);
+// const c2 = new Cliente('Rafael', 'Meireles', 'rafameireles@gmail.com', '123.444.789-98', 10789.44);
 
-console.log(c1);
-console.log(c2);
+// console.log(c1);
+// console.log(c2);
+
+// console.log(c1.nome_completo)
+// console.log(c2.nome_completo)
+
+// c1.nome_completo = 'Xuxa Meneguel';
+
+// console.log(c1);
+
+// c2.imprimir_dados();
+
+const programador = new Funcao('Programador', 4899.54);
+const suporte = new Funcao('Suporte', 2799.34);
+
+// console.log(programador);
+// console.log(suporte);
+
+const f1 = new Funcionario('Pedro', 'Silva', 'pedro@gmail.com', '983.456.587.66', programador, 'F90ER3');
+const f2 = new Funcionario('Maria', 'Siqueira', 'maria@gmail.com', '345.456.587.66', suporte, 'r90twR3');
+
+console.log(f1);
+console.log(f2);
+
+console.log(f1.funcao.salario);
+
+f1.imprimir_dados();
