@@ -38,3 +38,20 @@ Vamos mudar o script do package.json para executar o Babel via Webpack
     "dev": "webpack --mode=development -w"
   }
 ```
+
+# Organizando o projeto com WEBPACK SERVER
+```
+yarn add webpack-dev-server -D
+```
+Instalando dependencia para organizar as pastas independente de ser Windows ou Linux
+```
+yarn add path
+```
+
+No arqquivo package.json configure o ambiente de produção:
+```
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development",
+    "prod": "webpack --mode=production"
+  },
+```
